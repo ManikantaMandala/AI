@@ -2,9 +2,6 @@ import java.util.*;
 class miniMaxReaching20{
     static int playerZero=0,computerZero=0;
     public static void main(String args[]){
-        // int result=0;
-        // player =1, computer =-1;
-        //playerTurns, computerTurns;
         Scanner sc = new Scanner(System.in);
         int choice=0;
         int sum=0;
@@ -65,6 +62,8 @@ class miniMaxReaching20{
     }
     public static int computerChoice(int previousSum,int sum){
         // the algorithm goes here!
+        //TODO: First lets try with minimax algorithm!
+        //TODO: Then we can apply Alpha-beta pruning!
         computerZero++;
         return sum;
     }
