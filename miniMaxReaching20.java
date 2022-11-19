@@ -1,13 +1,14 @@
 import java.util.*;
 class miniMaxReaching20{
-    static int playerZero=0,computerZero=0;
+    static int playerZero=0,computerZero=0; // Zero condition for both players
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int choice=0;
-        int sum=0;
-        int previousSum=-1;
+        int choice=0;    // three cases 0,1,2
+        int sum=0;     // choice + previoussum
+        int previousSum=-1;  // choice of the last player to add the choice of current player
         int playerTurns=0, computerTurns=0;
-        while(sum<21){
+        while(sum<=20){
+            previousSum=sum;
             if((playerTurns+computerTurns)%2==0){
                 System.out.println("It's player's choice");
                 System.out.println("You have the following choices to make");
