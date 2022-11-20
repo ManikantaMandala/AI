@@ -1,54 +1,32 @@
 import java.util.*;
 class miniMaxReaching20{
-    static int playerZero=0,computerZero=0; // Zero condition for both players
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int choice=0;    // three cases 0,1,2
+        int choice=0;    // three cases 1,2
         int sum=0;     // choice + previoussum
         int previousSum=-1;  // choice of the last player to add the choice of current player
         int playerTurns=0, computerTurns=0;
         while(sum<=20){
-            previousSum=sum;
             if((playerTurns+computerTurns)%2==0){
                 System.out.println("It's player's choice");
                 System.out.println("You have the following choices to make");
-                if(playerZero==0 && !(sum-previousSum==0)){
-                    while(choice!=1 || choice!=2 || choice!=3){
-                        System.out.println("1. Remain at "+sum );
-                        System.out.println("2. make the sum to "+ (sum+1));
-                        System.out.println("3. make the sum to "+ (sum+2));
-                        choice=sc.nextInt();
-                        if(choice==1){
-                            sum=addZero(sum);
-                            playerZero++;
-                        }
-                        else if(choice==2){
-                            sum= addOne(sum);
-                        }
-                        else if(choice==3){
-                            sum = addTwo(sum);
-                        }
-                        else{
-                            System.out.println("Your choice is incorrect, Please choose again!");
-                        }
-                    }
-                }
-                else{
                     while(choice!=1 || choice!=2){
                         System.out.println("1. make the sum to "+ (sum+1));
                         System.out.println("2. make the sum to "+ (sum+2));
                         choice=sc.nextInt();
+                        previousSum=sum;
                         if(choice==1){
                             sum=addOne(sum);
+                            break;
                         }
                         else if(choice==2){
                             sum= addTwo(sum);
+                            break;
                         }
                         else{
                             System.out.println("Your choice is incorrect, Please choose again!");
                         }
                     }
-                }
                 System.out.println("Now the sum is "+ sum);
                 playerTurns++;
             }
@@ -63,9 +41,13 @@ class miniMaxReaching20{
     }
     public static int computerChoice(int previousSum,int sum){
         // the algorithm goes here!
+        previousSum=sum;
+
+        // Do operations
+
+
         //TODO: First lets try with minimax algorithm!
         //TODO: Then we can apply Alpha-beta pruning!
-        computerZero++;
         return sum;
     }
 
