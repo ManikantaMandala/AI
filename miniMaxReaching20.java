@@ -32,23 +32,23 @@ class miniMaxReaching20{
             }
             else{
                 System.out.println("It's computer's choice");
-                computerChoice(previousSum, sum);
+                computerChoice(sum);
                 System.out.println("Now the sum is "+ sum);
                 computerTurns++;
             }
         }
         sc.close();
     }
-    public static int computerChoice(int previousSum,int sum){
+    public static int computerChoice(int sum){
         // the algorithm goes here!
-        previousSum=sum;
-
+        Alphabeta ab= new Alphabeta();
+        return ab.run(sum);
+        // Alphabe
         // Do operations
 
 
         //TODO: First lets try with minimax algorithm!
         //TODO: Then we can apply Alpha-beta pruning!
-        return sum;
     }
 
     public static int addZero(int result){
