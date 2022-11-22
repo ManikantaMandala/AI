@@ -20,20 +20,17 @@ static class Node{
     }
 }
     public int run(int num) {
-    
-
     Node rootnode = new Node(num,start_utility);
      int res= max(rootnode , num, Integer.MIN_VALUE, Integer.MAX_VALUE);
      print2D(rootnode);
+     int actionTaken;
      if(rootnode.left.utility==res){
-        return rootnode.left.value;
-     }
-     else{
-        return rootnode.right.value;
-     }
-
-        
-
+        System.out.println(rootnode.left.utility+ " "+rootnode.right.utility);
+        actionTaken=rootnode.right.value;}
+    else{
+        System.out.println(rootnode.left.utility+ " "+rootnode.right.utility);
+        actionTaken=rootnode.left.value;}
+    return actionTaken;
     }
 
     public static int max(Node rootnode , int p_node , int alpha , int beta){
@@ -94,7 +91,7 @@ static class Node{
 
     public static boolean endcase1(int sum){
         boolean end = true;
-        if(sum<6){
+        if(sum<20){
             end = false;
         }
         return end;
@@ -103,7 +100,7 @@ static class Node{
     public static int basecase1( int node , boolean ismax){
 
 
-        if (node>=6 && !ismax){
+        if (node>=20 && !ismax){
             return -1;
         }
         else {
@@ -143,7 +140,7 @@ static class Node{
         System.out.print("\n");
         for (int i = COUNT; i < space; i++)
             System.out.print(" ");
-        System.out.print(root.value + "\n");
+        System.out.print(root.value + " utility: "+root.utility+"\n");
 
         // Process left child
         print2DUtil(root.left, space);
