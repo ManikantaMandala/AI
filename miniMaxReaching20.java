@@ -5,7 +5,7 @@ class miniMaxReaching20{
         int choice=0;    // two cases 1,2
         int sum=0;     // choice + previoussum
         int playerTurns=0, computerTurns=0; //playerTurns and computerTurns
-        while(sum<=6){
+        while(sum<20){
             if((playerTurns+computerTurns)%2==0){ //playerTurn + computerTurn if even its players turn else computer turn.
                 System.out.println("It's player's choice");
                 System.out.println("You have the following choices to make");
