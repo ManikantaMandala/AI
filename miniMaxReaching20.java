@@ -2,11 +2,11 @@ import java.util.*;
 class miniMaxReaching20{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int choice=0;    // three cases 1,2
+        int choice=0;    // two cases 1,2
         int sum=0;     // choice + previoussum
         int playerTurns=0, computerTurns=0; //playerTurns and computerTurns
-        while(sum<=20){
-            if((playerTurns+computerTurns)%2==0){
+        while(sum<=6){
+            if((playerTurns+computerTurns)%2==0){ //playerTurn + computerTurn if even its players turn else computer turn.
                 System.out.println("It's player's choice");
                 System.out.println("You have the following choices to make");
                     while(choice!=1 || choice!=2){
@@ -35,6 +35,7 @@ class miniMaxReaching20{
                 computerTurns++; //computerTurns will be increased
             }
         }
+        System.out.println("players took "+(playerTurns+computerTurns)+" turns"); // prints how many turns are taken by both player.
         sc.close();
     }
     public static int computerChoice(int sum){ //gives the optimized option for the computer to choose using alphabeta

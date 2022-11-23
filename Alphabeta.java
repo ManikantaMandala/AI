@@ -3,7 +3,7 @@
 public class Alphabeta {
 
     static final int COUNT = 10;
-   static final int start_utility = Integer.MIN_VALUE;
+    static final int start_utility = Integer.MIN_VALUE;
    static final int end_utility = Integer.MAX_VALUE;
    static  int min_val;
    static  int max_val;
@@ -47,7 +47,6 @@ static class Node{
                 if(i==1) {
                     min_val = min(rootnode.left, p_node + i, alpha, beta);
                     rootnode.left.utility = min_val;
-
                 }
                 else{
                    min_val = min(rootnode.right,p_node+i,alpha , beta);
@@ -91,7 +90,7 @@ static class Node{
 
     public static boolean endcase1(int sum){
         boolean end = true;
-        if(sum<20){
+        if(sum<6){
             end = false;
         }
         return end;
@@ -100,7 +99,7 @@ static class Node{
     public static int basecase1( int node , boolean ismax){
 
 
-        if (node>=20 && !ismax){
+        if (node>=6 && !ismax){
             return -1;
         }
         else {
