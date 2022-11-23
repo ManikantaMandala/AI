@@ -3,6 +3,7 @@
 public class Alphabeta {
     static final int COUNT = 10;
     static final int start_utility = Integer.MIN_VALUE;
+<<<<<<< HEAD
     static final int end_utility = Integer.MAX_VALUE;
     static  int min_val;
     static  int max_val;
@@ -22,8 +23,24 @@ public class Alphabeta {
             this.value=value;
             this.utility=utility;
         }
+=======
+   static final int end_utility = Integer.MAX_VALUE;
+   static  int min_val;
+   static  int max_val;
+
+static class Node{
+    Node left;
+    Node right;
+    int value;
+    int utility;
+
+    public Node(int value,int utility){
+        this.value=value;
+        this.utility=utility;
+>>>>>>> cd67e7cfaffe2aefeb91f8ef392ec7d160eb9b38
     }
     public int run(int num) {
+<<<<<<< HEAD
         // This is main method from where computer will start building search tree
         // to decide it's move
         Node rootnode = new Node(num,start_utility);
@@ -35,6 +52,19 @@ public class Alphabeta {
         else{
             return rootnode.right.value;
         }
+=======
+    Node rootnode = new Node(num,start_utility);
+     int res= max(rootnode , num, Integer.MIN_VALUE, Integer.MAX_VALUE);
+     print2D(rootnode);
+     int actionTaken;
+     if(rootnode.left.utility==res){
+        System.out.println(rootnode.left.utility+ " "+rootnode.right.utility);
+        actionTaken=rootnode.right.value;}
+    else{
+        System.out.println(rootnode.left.utility+ " "+rootnode.right.utility);
+        actionTaken=rootnode.left.value;}
+    return actionTaken;
+>>>>>>> cd67e7cfaffe2aefeb91f8ef392ec7d160eb9b38
     }
 
     public static int max(Node rootnode , int p_node , int alpha , int beta){
@@ -44,6 +74,7 @@ public class Alphabeta {
             return basecase1( p_node,true );
 //            rootnode.utility = val;
         }
+<<<<<<< HEAD
         // if the node is not the endcase
         // then it will expand itself further
         // for each node there are 2 possible cases :-
@@ -71,6 +102,24 @@ public class Alphabeta {
             alpha=Math.max(alpha,val);
                 // pruning the edge condition according to aplha-beta pruning algorithm
             if (beta <= alpha){
+=======
+        int val = Integer.MIN_VALUE;
+            for (int i = 1; i <= 2; ++i) {
+                insert(rootnode , p_node,i,start_utility);
+                if(i==1) {
+                    min_val = min(rootnode.left, p_node + i, alpha, beta);
+                    rootnode.left.utility = min_val;
+                }
+                else{
+                   min_val = min(rootnode.right,p_node+i,alpha , beta);
+                    rootnode.right.utility = min_val;
+                }
+                if(min_val>val){
+                  val = min_val;
+                }
+                alpha=Math.max(alpha,val);
+                if (beta <= alpha){
+>>>>>>> cd67e7cfaffe2aefeb91f8ef392ec7d160eb9b38
                 break;
             }}
         return val ;
@@ -168,7 +217,7 @@ public class Alphabeta {
         System.out.print("\n");
         for (int i = COUNT; i < space; i++)
             System.out.print(" ");
-        System.out.print(root.value + "\n");
+        System.out.print(root.value + " utility: "+root.utility+"\n");
 
         // Process left child
         print2DUtil(root.left, space);
